@@ -9,12 +9,15 @@ function renderTasks() {
   let element = document.getElementById('tasks');
   element.innerHTML = '';
   for (let i = 0; i < taskArr.length; i++) {
-    element.innerHTML += "<div class='task'>" +`<p>${taskArr[i]}</p>` + `<input class='insertBtn'type='image' src='./asset/download.png' onclick=' insertTask(${i})'>`+`<input class='completeBtn'type='image' src='./asset/download (1).png' onclick='updateTask(${i})' >` + `<button class='btn' onclick='deleteTask(${i})'>x</button>` +  "</div>";
-  document.getElementById('txtInp').value = '';
+    element.innerHTML += "<div class='task'>" +`<p>${taskArr[i]}</p>` +`<input class='completeBtn'type='image' src='./asset/download (1).png' onclick='updateTask(${i})'><span class='tooltip'>Finish</span>` + `<input class='insertBtn btn'type='image' src='./asset/download.png' onclick='insertTask(${i})'>`+ `<button class='deleteBtn' onclick='deleteTask(${i})'><span class='tooltip'>Delete</span>x</button>`+  "</div>";
+    document.getElementById('txtInp').value = '';
   }
-   
 }
 renderTasks();
+
+function tooltip(){
+
+}
 
 function updateTask(i){
   let temp =document.getElementsByTagName('p').item(i);
