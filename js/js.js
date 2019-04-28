@@ -13,7 +13,7 @@ let getTask = () => {
 }
 
 let setTask = () => {
-  window.localStorage.setItem('Task',JSON.stringify(taskArr));
+  window.localStorage.setItem('Task',JSON.stringify(taskArr)||[]);
 }
 
 function renderTasks() { 
