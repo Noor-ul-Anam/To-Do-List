@@ -9,12 +9,12 @@ function renderTasks() {
   let element = document.getElementById('tasks');
   element.innerHTML = '';
   for (let i = 0; i < taskArr.length; i++) {
-    element.innerHTML += "<div class='task'>" +`<p>${taskArr[i]}</p>` +`<input class='completeBtn'type='image' src='./asset/download (1).png' onclick='updateTask(${i})'><span class='tooltip'>Finish</span>` + `<input class='insertBtn btn'type='image' src='./asset/download.png' onclick='insertTask(${i})'>`+ `<button class='deleteBtn' onclick='deleteTask(${i})'><span class='tooltip'>Delete</span>x</button>`+  "</div>";
+    element.innerHTML += "<div class='task'>" +`<p>${taskArr[i]}</p>` +`<a class='completeBtn' tooltip='Complete' onclick='updateTask(${i})'><img src='./asset/download (1).png'></a>` + `<a class='insertBtn btn' src='./asset/download.png' tooltip='Edit'onclick='insertTask(${i})'><img src='./asset/download.png'></a>`+ `<a class='deleteBtn' tooltip='Delete' onclick='deleteTask(${i})'><img src='./asset/download (2).png'></a>`+ "</div>";
     document.getElementById('txtInp').value = '';
   }
 }
 renderTasks();
-
+/*<span class='tooltip'>Finish</span>*/
 function tooltip(){
 
 }

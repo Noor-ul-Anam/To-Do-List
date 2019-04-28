@@ -26,52 +26,38 @@ body {
       .container .body .task p {
         width: 75%; }
       .container .body .task .deleteBtn {
-        display: inline-block;
-        background-color: white;
-        border: black 1.5px solid;
-        border-radius: 6px;
-        cursor: pointer;
+        height: 20px;
+        width: 20px;
         position: absolute;
-        right: 8px;
-        top: 6.5px;
-        font-weight: bold; }
-        .container .body .task .deleteBtn .tooltip {
-          visibility: hidden;
-          background-color: black;
-          color: white;
-          padding: 4px 10px;
-          position: absolute;
-          border-radius: 10px;
-          z-index: 1;
-          bottom: 150%;
-          right: 5%; }
-      .container .body .task .deleteBtn:hover .tooltip,
-      .container .body .task .insertBtn:hover .tooltip,
-      .container .body .task .completeBtn:hover .tooltip {
-        visibility: visible;
-        opacity: 1; }
+        width: 20px;
+        height: 20px;
+        top: 4px;
+        right: 8px; }
+        .container .body .task .deleteBtn img {
+          height: 20px;
+          width: 20px; }
       .container .body .task .insertBtn {
-        width: 19.67px;
-        height: 18px;
+        height: 20px;
+        width: 20px;
         position: absolute;
-        right: 35px;
-        top: 6.5px; }
-        .container .body .task .insertBtn .tooltip {
-          visibility: hidden;
-          background-color: black;
-          color: white;
-          padding: 4px 10px;
-          position: absolute;
-          border-radius: 10px;
-          z-index: 1;
-          bottom: 150%;
-          right: 5%; }
+        width: 20px;
+        height: 20px;
+        top: 4px;
+        right: 35px; }
+        .container .body .task .insertBtn img {
+          height: 20px;
+          width: 20px; }
       .container .body .task .completeBtn {
-        width: 19.67px;
-        height: 18px;
+        height: 20px;
+        width: 20px;
         position: absolute;
-        right: 60px;
-        top: 6.5px; }
+        width: 20px;
+        height: 20px;
+        top: 4px;
+        right: 60px; }
+        .container .body .task .completeBtn img {
+          height: 20px;
+          width: 20px; }
   .container .head {
     height: 100px;
     border-bottom: 1px solid #00000069;
@@ -87,5 +73,88 @@ body {
       margin: auto;
       padding: 5px 10px;
       box-sizing: border-box; }
+
+[tooltip] {
+  position: relative; }
+
+[tooltip]::before,
+[tooltip]::after {
+  text-transform: none;
+  font-size: .9em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0; }
+
+[tooltip]::before {
+  content: '';
+  border: 5px solid transparent;
+  z-index: 10001; }
+
+[tooltip]::after {
+  content: attr(tooltip);
+  font-family: Helvetica, sans-serif;
+  text-align: center;
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -0.5em rgba(0, 0, 0, 0.35);
+  background: #333;
+  color: #fff;
+  z-index: 100000; }
+
+[tooltip]:hover::before,
+[tooltip]:hover::after {
+  display: block;
+  z-index: 100000; }
+
+[tooltip='']::before,
+[tooltip='']::after {
+  display: none !important; }
+
+[tooltip]:not([flow])::before,
+[tooltip][flow^="up"]::before {
+  bottom: 100%;
+  border-bottom-width: 0;
+  border-top-color: #333; }
+
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::after {
+  bottom: calc(100% + 5px); }
+
+[tooltip]:not([flow])::before,
+[tooltip]:not([flow])::after,
+[tooltip][flow^="up"]::before,
+[tooltip][flow^="up"]::after {
+  left: 50%;
+  transform: translate(-50%, -0.5em); }
+
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    transform: translate(-50%, 0); } }
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    transform: translate(0, -50%); } }
+[tooltip]:not([flow]):hover::before,
+[tooltip]:not([flow]):hover::after,
+[tooltip][flow^="up"]:hover::before,
+[tooltip][flow^="up"]:hover::after,
+[tooltip][flow^="down"]:hover::before,
+[tooltip][flow^="down"]:hover::after {
+  animation: tooltips-vert 300ms ease-out forwards; }
+
+[tooltip][flow^="left"]:hover::before,
+[tooltip][flow^="left"]:hover::after,
+[tooltip][flow^="right"]:hover::before,
+[tooltip][flow^="right"]:hover::after {
+  animation: tooltips-horz 300ms ease-out forwards; }
 
 /*# sourceMappingURL=style.css.map */
