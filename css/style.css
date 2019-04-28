@@ -2,7 +2,7 @@
   box-sizing: border-box; }
 
 body {
-  background-color: aquamarine; }
+  background-color: #0e5f44; }
 
 .container {
   background-color: white;
@@ -12,6 +12,9 @@ body {
   margin-top: 15vh;
   box-shadow: 1px 1px 5px #00000069;
   border-radius: 10px; }
+  @media (max-width: 500px) and (min-width: 150px) {
+    .container {
+      width: 90%; } }
   .container .body {
     padding: 15px;
     overflow-x: auto;

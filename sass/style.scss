@@ -12,9 +12,12 @@
   box-sizing: border-box;
 }
 body{
-  background-color: aquamarine;
+  background-color: rgb(14, 95, 68);
 }
 .container{
+  @media (max-width:500px) and (min-width: 150px){
+    width: 90%;;
+  }
   background-color: white;
   width: 50%; 
   margin: auto;
